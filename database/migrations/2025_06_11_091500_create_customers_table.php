@@ -17,6 +17,7 @@ return new class extends Migration
             $table->enum('jenis kelamin',['Laki Laki', 'Perempuan']);
             $table->string('telpon');
             $table->string('alamat');
+            $table->string('NIK');
             $table->string('foto_ktp');
             $table->timestamps();
         });

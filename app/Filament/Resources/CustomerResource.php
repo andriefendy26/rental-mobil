@@ -20,7 +20,8 @@ class CustomerResource extends Resource
 {
     protected static ?string $model = Customer::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-m-user-group';
+    protected static ?string $navigationGroup = 'Transaksi';
 
     public static function form(Form $form): Form
     {
@@ -33,6 +34,7 @@ class CustomerResource extends Resource
                  ]),
                  Forms\Components\TextInput::make('telpon')->label('Telpon')->numeric(),
                  Forms\Components\TextInput::make('alamat')->label('Alamat'),
+                 Forms\Components\TextInput::make('NIK')->label('NIK')->numeric(),
                  Forms\Components\FileUpload::make('foto_ktp')->image(),
                 ]); 
     }
@@ -41,7 +43,8 @@ class CustomerResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('nama'),
+                TextColumn::make('nama')->searchable(),
+                TextColumn::make('NIK')->searchable(),
                 TextColumn::make('jenis_kelamin'),
                 TextColumn::make('telpon'),
                 TextColumn::make('alamat'),

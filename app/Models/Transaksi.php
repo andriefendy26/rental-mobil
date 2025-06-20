@@ -17,12 +17,13 @@ class Transaksi extends Model
     {
          return $this->BelongsTo(Customer::class);
     }
-    public function Mobil(): HasOne
+    public function Mobil(): belongsTo
     {
-         return $this->HasOne(Mobil::class);
+         return $this->belongsTo(Mobil::class , 'mobil_id');
     }
-    public function Supir(): HasOne
-    {
-         return $this->HasOne(Supir::class);
-    }
+   public function Supir(): BelongsTo
+{
+    return $this->belongsTo(Supir::class, 'supir_id');
+}
+
 }

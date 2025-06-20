@@ -18,8 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('supir_id')->nullable();
             $table->date('tanggal_rental');
             $table->date('tanggal_pengembalian');
+            $table->date('tanggal_pengembalian_sebenarnya')->nullable();
             $table->double('denda');
             $table->double('total_biaya');
+            $table->integer('isDone');
             $table->foreign('customer_id')->references('id')->on('customers');
             $table->foreign('mobil_id')->references('id')->on('mobils');
             $table->foreign('supir_id')->references('id')->on('supirs');

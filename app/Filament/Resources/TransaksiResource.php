@@ -19,12 +19,16 @@ use Filament\Forms\Components\DateTimePicker;
 use App\Filament\Resources\TransaksiResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\TransaksiResource\RelationManagers;
+use Filament\Tables\Columns\IconColumn;
+use Filament\Tables\Columns\ImageColumn;
 
 class TransaksiResource extends Resource
 {
     protected static ?string $model = Transaksi::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'bi-archive';
+    
+    protected static ?string $navigationGroup = 'Transaksi';
 
     public static function form(Form $form): Form
 {
@@ -65,7 +69,7 @@ class TransaksiResource extends Resource
             })
             ->createOptionForm([
                 TextInput::make('nama'),
-            ]),
+            ])->nullable(),
 
         // Tanggal Rental
         DatePicker::make('tanggal_rental')
@@ -120,7 +124,13 @@ class TransaksiResource extends Resource
             ->disabled()
             ->dehydrated()
             ->numeric(),
-
+        // Total Harga (otomatis dihitung)
+        Select::make('isDone')
+              ->options([
+                0 => 'Belum Lunas',
+                1 => 'Lunas'
+                ])->default(0)->label('Status Transaksi'),
+        
     ]);
 }
 
@@ -128,11 +138,17 @@ class TransaksiResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('Customer.nama'),
-                TextColumn::make('mobil_id'),
-                TextColumn::make('supir_id'),
+                IconColumn::make('isDone')->boolean()->trueIcon('heroicon-o-check-badge')
+                    ->falseIcon('heroicon-o-clock')->falseColor('gray')
+                    ->trueColor('success')->label(" ")->alignCenter(),
+                TextColumn::make('statusText')->label('Status Transaksi')->getStateUsing(fn ($record) => $record->isDone ? 'Selesai' : 'Menunggu'),
+                TextColumn::make('Customer.nama')->searchable(),
+                // ImageColumn::make('Customer.foto_ktp')->label('KTP'),
+                ImageColumn::make('Mobil.gambar')->label("Mobil"),
+                // TextColumn::make('supir_id'),
                 TextColumn::make('tanggal_rental'),
                 TextColumn::make('tanggal_pengembalian'),
+                TextColumn::make('tanggal_pengembalian_sebenarnya')->label("Aktual Pengembalian"),
                 TextColumn::make('denda'),
                 TextColumn::make('total_biaya'),
             ])
@@ -141,11 +157,40 @@ class TransaksiResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('selesaikan')
+            ->label('Selesaikan')
+            ->icon('heroicon-o-check-circle')
+            ->requiresConfirmation()
+            ->form([
+                DatePicker::make('tanggal_pengembalian_aktual')
+                    ->label('Tanggal Pengembalian Aktual')
+                    ->required()
+                    ->default(now()),
             ])
-            ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
+            ->action(function ($record, array $data) {
+                $tanggalPengembalianRencana = Carbon::parse($record->tanggal_pengembalian);
+                $tanggalAktual = Carbon::parse($data['tanggal_pengembalian_aktual']);
+
+                // Hitung denda (misal: Rp50.000/hari keterlambatan)
+                $hariTerlambat = $tanggalAktual->greaterThan($tanggalPengembalianRencana)
+                    ? $tanggalAktual->diffInDays($tanggalPengembalianRencana)
+                    : 0;
+
+                $dendaPerHari = $record->denda;
+                $dendaTotal = $hariTerlambat * $dendaPerHari;
+
+                $record->update([
+                    'tanggal_pengembalian_sebenarnya' => $tanggalAktual,
+                    'total_biaya' => $record->total_biaya + $dendaTotal,
+                    'isDone' => 1,
+                ]);
+             })
+            ->visible(fn ($record) => $record->isDone == 0), 
+                ])
+                ->bulkActions([
+                    Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                ]),
+                    ]),
             ]);
     }
 

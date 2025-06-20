@@ -20,6 +20,7 @@ class JenisMobilResource extends Resource
     protected static ?string $model = JenisMobil::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Armada';
 
     public static function form(Form $form): Form
     {

@@ -18,8 +18,8 @@ use App\Filament\Resources\ArtikelResource\RelationManagers;
 class ArtikelResource extends Resource
 {
     protected static ?string $model = Artikel::class;
-
     protected static ?string $navigationIcon = 'heroicon-s-presentation-chart-line';
+     protected static ?string $navigationGroup = 'Blog';
 
     public static function form(Form $form): Form
     {

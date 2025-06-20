@@ -1,0 +1,4 @@
+.filament-brand img {
+    max-height: 40px !important; /* Ubah sesuai kebutuhan */
+    width: auto;
+}

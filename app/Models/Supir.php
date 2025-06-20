@@ -9,4 +9,11 @@ class Supir extends Model
 {
     use HasFactory;
         protected $table = 'supirs';
+
+    public function transaksis()
+{
+    return $this->hasMany(Transaksi::class, 'supir_id'); // ✅ Benar, karena transaksi yang punya foreign key supir_id
+}
+
+
 }
