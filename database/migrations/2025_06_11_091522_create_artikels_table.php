@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             // $table->unsignedBigInteger('customer_id');
             $table->string('judul');
-            $table->string('narasi');
+            $table->string('sub_judul');
+            $table->text('content');
             $table->string('gambar');
+            $table->string('tags');
+            $table->string('author');
             $table->timestamps();
         });
     }

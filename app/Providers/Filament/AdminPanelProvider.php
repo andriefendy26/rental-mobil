@@ -46,7 +46,6 @@ class AdminPanelProvider extends PanelProvider
             ->navigationGroups([
                 'Armada',
                 'Transaksi',
-                'Blog',
                 'Settings',
             ])
             ->colors([

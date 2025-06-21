@@ -10,6 +10,22 @@ class MobilController extends Controller
     //
     public function index()
     {
-        return response()->json(Mobil::all());
+         $dataMobil = Mobil::all()->map(function ($mobil) {
+            // Tambahkan full URL ke gambar
+            $mobil->gambar = $mobil->gambar 
+                ? asset('storage/' . $mobil->gambar) 
+                : null;
+
+            return $mobil;
+        });
+
+        return response()->json(
+            [
+                'status' => 200,
+                'data' => [
+                    'mobil' => $dataMobil
+                ]
+            ]
+        );  
     }
 }
