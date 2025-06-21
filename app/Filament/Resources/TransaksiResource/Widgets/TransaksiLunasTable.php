@@ -32,6 +32,7 @@ class TransaksiLunasTable extends BaseWidget
                 TextColumn::make('supir_id'),
                 TextColumn::make('tanggal_rental'),
                 TextColumn::make('tanggal_pengembalian'),
+                 TextColumn::make('tanggal_pengembalian_sebenarnya')->label("Aktual Pengembalian"),
                 TextColumn::make('denda'),
                 TextColumn::make('total_biaya'),
             ]);

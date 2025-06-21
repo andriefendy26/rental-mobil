@@ -25,6 +25,7 @@ class AdminPanelProvider extends PanelProvider
     {
         return $panel
             ->default()
+            ->profile()
             ->id('admin')
             ->path('admin')
             ->login()
@@ -41,13 +42,14 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\AccountWidget::class,
                 // Widgets\FilamentInfoWidget::class,
             ])
-            // ->topNavigation()
+            ->topNavigation()
             ->navigationGroups([
                 'Armada',
                 'Transaksi',
                 'Blog',
                 'Settings',
-            ])->colors([
+            ])
+            ->colors([
             'danger' => Color::Rose,
             'gray' => Color::Gray,
             'info' => Color::Blue,

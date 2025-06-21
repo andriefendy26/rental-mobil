@@ -4,11 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Supir extends Model
 {
     use HasFactory;
-        protected $table = 'supirs';
+    use SoftDeletes;
+    
+    protected $table = 'supirs';
 
     public function transaksis()
 {

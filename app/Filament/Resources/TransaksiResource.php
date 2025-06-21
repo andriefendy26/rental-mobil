@@ -3,24 +3,23 @@
 namespace App\Filament\Resources;
 
 use Carbon\Carbon;
-use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
 use App\Models\Transaksi;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
-use Illuminate\Database\Eloquent\Builder;
-use Filament\Forms\Components\DateTimePicker;
 use App\Filament\Resources\TransaksiResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\TransaksiResource\RelationManagers;
+use Filament\Forms\Components\Actions;
+use Filament\Forms\Components\Actions\Action;
+use Filament\Forms\Components\Hidden;
+use Filament\Forms\Get;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Enums\ActionsPosition;
 
 class TransaksiResource extends Resource
 {
@@ -37,40 +36,51 @@ class TransaksiResource extends Resource
         // Select Customer
         Select::make('customer_id')
             ->relationship('customer', 'nama')
-            ->createOptionForm([
-                TextInput::make('nama')->required(),
-            ])
             ->required(),
 
-        // Select Mobil
         Select::make('mobil_id')
             ->relationship('mobil', 'merek')
             ->reactive()
             ->afterStateUpdated(function (callable $set, $state) {
-                if ($state) {
-                    $mobil = \App\Models\Mobil::find($state);
-                    $set('harga_mobil', $mobil->harga ?? 0);
+                $mobil = \App\Models\Mobil::find($state);
+                if($state || !$state || $state == null || $state == 0 || $state == '') {
+                    $set('supir_id', null);
+                    $set('total_biaya', null);
+                    $set('tanggal_rental', null);
+                    $set('tanggal_pengembalian', null);
                 }
-            })
-            ->createOptionForm([
-                TextInput::make('merek')->required(),
-            ])
+
+                if(!$mobil){
+                    $set('harga_mobil', 0);
+                }else {
+                    $set('harga_mobil', $mobil->harga);
+                }
+
+            })        
             ->required(),
 
         // Select Supir (Opsional)
         Select::make('supir_id')
             ->relationship('supir', 'nama')
             ->reactive()
-            ->afterStateUpdated(function (callable $set, $state) {
-                if($state){
-                    $supir = \App\Models\Supir::find($state);
-                    $set('tarif_supir', $supir->tarif ?? 0);
+            ->afterStateUpdated(function (Get $get, callable $set, $state) {
+                $supir = \App\Models\Supir::find($state);
+                $total_harga = $get('total_harga');
+                // $tarif_supir = $get('tarif_supir');
+                if($state || !$state || $state == null || $state == 0 || $state == '') {
+                    $set('total_biaya', null);
+                    $set('tanggal_rental', null);
+                    $set('tanggal_pengembalian', null);
+                }      
+
+                if($supir){
+                    $set('tarif_supir', $supir->tarif);
+                }else{ 
+                    $set('tarif_supir', 0);
                 }
             })
-            ->createOptionForm([
-                TextInput::make('nama'),
-            ])->nullable(),
-
+            ->nullable(),  
+            
         // Tanggal Rental
         DatePicker::make('tanggal_rental')
             ->label('Tanggal Rental')
@@ -137,6 +147,9 @@ class TransaksiResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+          ->query(
+                 Transaksi::query()->where('isDone', 0) 
+            )
             ->columns([
                 IconColumn::make('isDone')->boolean()->trueIcon('heroicon-o-check-badge')
                     ->falseIcon('heroicon-o-clock')->falseColor('gray')
@@ -155,45 +168,47 @@ class TransaksiResource extends Resource
             ->filters([
                 //
             ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ])
             ->actions([
-                Tables\Actions\EditAction::make(),
                 Tables\Actions\Action::make('selesaikan')
-            ->label('Selesaikan')
-            ->icon('heroicon-o-check-circle')
-            ->requiresConfirmation()
-            ->form([
-                DatePicker::make('tanggal_pengembalian_aktual')
+                ->label('Selesaikan')
+                ->icon('heroicon-o-check-circle')
+                ->requiresConfirmation()
+                ->form([
+                    DatePicker::make('tanggal_pengembalian_aktual')
                     ->label('Tanggal Pengembalian Aktual')
                     ->required()
                     ->default(now()),
-            ])
-            ->action(function ($record, array $data) {
-                $tanggalPengembalianRencana = Carbon::parse($record->tanggal_pengembalian);
-                $tanggalAktual = Carbon::parse($data['tanggal_pengembalian_aktual']);
-
-                // Hitung denda (misal: Rp50.000/hari keterlambatan)
-                $hariTerlambat = $tanggalAktual->greaterThan($tanggalPengembalianRencana)
-                    ? $tanggalAktual->diffInDays($tanggalPengembalianRencana)
-                    : 0;
-
-                $dendaPerHari = $record->denda;
-                $dendaTotal = $hariTerlambat * $dendaPerHari;
-
-                $record->update([
-                    'tanggal_pengembalian_sebenarnya' => $tanggalAktual,
-                    'total_biaya' => $record->total_biaya + $dendaTotal,
-                    'isDone' => 1,
-                ]);
-             })
-            ->visible(fn ($record) => $record->isDone == 0), 
-                ])
-                ->bulkActions([
-                    Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                    ]),
-            ]);
-    }
-
+                    ])
+                    ->action(function ($record, array $data) {
+                        $tanggalPengembalianRencana = Carbon::parse($record->tanggal_pengembalian);
+                        $tanggalAktual = Carbon::parse($data['tanggal_pengembalian_aktual']);
+                        
+                        // Hitung denda (misal: Rp50.000/hari keterlambatan)
+                        $hariTerlambat = $tanggalAktual->greaterThan($tanggalPengembalianRencana)
+                        ? $tanggalAktual->diffInDays($tanggalPengembalianRencana)
+                        : 0;
+                        
+                        $dendaPerHari = $record->denda;
+                        $dendaTotal = $hariTerlambat * $dendaPerHari;
+                        
+                        $record->update([
+                            'tanggal_pengembalian_sebenarnya' => $tanggalAktual,
+                            'total_biaya' => $record->total_biaya + $dendaTotal,
+                            'isDone' => 1,
+                        ]);
+                    })
+                    ->visible(fn ($record) => $record->isDone == 0),
+                    Tables\Actions\DeleteAction::make()
+                    ]
+                    // , position: ActionsPosition::BeforeCells
+                );
+            }
+            
     public static function getRelations(): array
     {
         return [

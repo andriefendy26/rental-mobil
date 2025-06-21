@@ -22,9 +22,9 @@ return new class extends Migration
             $table->double('denda');
             $table->double('total_biaya');
             $table->integer('isDone');
-            $table->foreign('customer_id')->references('id')->on('customers');
-            $table->foreign('mobil_id')->references('id')->on('mobils');
-            $table->foreign('supir_id')->references('id')->on('supirs');
+            $table->foreign('customer_id')->references('id')->on('customers')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('mobil_id')->references('id')->on('mobils')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('supir_id')->references('id')->on('supirs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

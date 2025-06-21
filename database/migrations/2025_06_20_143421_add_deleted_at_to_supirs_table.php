@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('mobils', function (Blueprint $table) {
+        Schema::table('supirs', function (Blueprint $table) {
+            $table->softDeletes(); 
             //
-        $table->unsignedBigInteger('jenis_mobil_id');
-        $table->foreign('jenis_mobil_id')->references('id')->on('jenis_mobils')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
@@ -23,8 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('mobils', function (Blueprint $table) {
+        Schema::table('supirs', function (Blueprint $table) {
             //
+             $table->dropSoftDeletes();
         });
     }
 };

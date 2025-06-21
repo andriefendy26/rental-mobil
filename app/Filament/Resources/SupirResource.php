@@ -20,7 +20,7 @@ class SupirResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-     protected static ?string $navigationGroup = 'Armada';
+     protected static ?string $navigationGroup = 'Transaksi';
 
     public static function form(Form $form): Form
     {
