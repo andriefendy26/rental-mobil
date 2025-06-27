@@ -9,4 +9,8 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateJenisMobil extends CreateRecord
 {
     protected static string $resource = JenisMobilResource::class;
+        protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index'); 
+    }
 }

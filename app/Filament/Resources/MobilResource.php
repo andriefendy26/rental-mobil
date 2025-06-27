@@ -42,8 +42,11 @@ class MobilResource extends Resource
                    TextInput::make('nama'),
                 ]),
                 Forms\Components\TextInput::make('kapasitas')->label('Kapasitas')->numeric(),
-                Forms\Components\TextInput::make('warna')->label('Warna'),
+                Forms\Components\TextInput::make('warna')->label('Warna')->default('Menyesuaikan'),
                 Forms\Components\Select::make('bahan_bakar')->label('Bahan Bakar')->options([
+                    'Solar' => 'Solar',
+                    'Bensin/Solar' => 'Bensin/Solar',
+                    'Bensin' => 'Bensin',
                     'Premium' => 'Premium',
                     'Pertalite' => 'Pertalite',
                     'Pertamax' => 'Pertamax',
@@ -56,7 +59,8 @@ class MobilResource extends Resource
                     'Otomatis' => 'Otomatis',
                     'CVT' => 'CVT',
                     'DCT' => 'DCT',
-                    'AMT' => 'AMT'
+                    'AMT' => 'AMT',
+                    'AT/MT' => 'AT/MT'
                 ]),
                 Forms\Components\FileUpload::make('gambar')->image(),
             ]);

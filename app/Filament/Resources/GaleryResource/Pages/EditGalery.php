@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\SupirResource\Pages;
+namespace App\Filament\Resources\GaleryResource\Pages;
 
-use App\Filament\Resources\SupirResource;
+use App\Filament\Resources\GaleryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditSupir extends EditRecord
+class EditGalery extends EditRecord
 {
-    protected static string $resource = SupirResource::class;
+    protected static string $resource = GaleryResource::class;
 
     protected function getHeaderActions(): array
     {

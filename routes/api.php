@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\galeri;
+use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\MobilController;
 // use App\Models\Mobil;
 use Illuminate\Http\Request;
@@ -27,3 +29,6 @@ Route::get('/mobil', [MobilController::class, 'index']);
 //route artikel
 Route::get('/artikel', [ArtikelController::class, 'index']);
 Route::get('/artikel/{id}', [ArtikelController::class, 'getById']);
+
+//route galeri
+Route::get('/galeri', [GaleriController::class, 'index']);
