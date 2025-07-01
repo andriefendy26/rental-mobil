@@ -11,10 +11,8 @@ class Artikel extends Model
     use HasFactory;
     
     protected $fillable = [
-        'judul',
-        'narasi',
-        'gambar',
-        'user_id',
+      'id', 'judul', 'sub_judul', 'author',
+        'gambar', 'tags', 'created_at', 'updated_at'
     ];
 
     public function User(): BelongsTo

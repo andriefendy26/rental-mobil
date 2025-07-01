@@ -15,6 +15,6 @@ class Mobil extends Model
 
     public function JenisMobil(): BelongsTo
     {
-         return $this->BelongsTo(jenisMobil::class);
+         return $this->belongsTo(jenisMobil::class);
     }
 }

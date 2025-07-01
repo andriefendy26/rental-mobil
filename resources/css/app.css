@@ -1,4 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind variants;
+@plugin "daisyui";
+
+body {
+    /* overflow-x : hidden; */
+    background-color: white;
+}
+ 
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* Modern Swiper Button Styles */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 10px;
+  color: #374151;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: #f9fafb;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none;
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 16px;
+  }
+}

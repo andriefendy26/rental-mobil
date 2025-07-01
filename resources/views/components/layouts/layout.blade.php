@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+ <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <title>Rental Berau CV Tujuh Sembilan</title>
+    <meta
+    name="description"
+    content="Rental mobil terpercaya di Berau. CV. Tujuh Sembilan Oto menyediakan armada berkualitas dan layanan profesional untuk perjalanan pribadi, bisnis, hingga proyek tambang."
+  />
+    <link rel="icon" type="image/png" href="/Logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rental Mobil Berau Termurah | CV Tujuh Sembilan Oto Rentcar</title>
+    <meta
+      name="keywords"
+      content="rental mobil Berau, sewa mobil Berau, harga rental mobil Berau, rental mobil murah Berau, rental mobil harian Berau, rental mobil mingguan Berau, rental mobil bulanan Berau, rental mobil lepas kunci Berau, rental mobil dengan sopir Berau, rental mobil terpercaya Berau, sewa mobil bandara Kalimarau, antar jemput Bandara Berau, sewa mobil Innova Berau, sewa Avanza Berau, rental Fortuner Berau, sewa Hiace Berau, mobil untuk proyek tambang Berau, rental mobil perusahaan Berau, sewa mobil operasional Berau, rental mobil wedding Berau, CV Tujuh Sembilan Oto, Tujuh Sembilan Oto Rentcar, mobil sewaan Berau, layanan sewa mobil Berau, jasa transportasi Berau, rental mobil 24 jam Berau, rental mobil pariwisata Berau, rental mobil elf Berau"
+    />
+
+    <meta name="author" content="CV Tujuh Sembilan Oto Rentcar" />
+
+    <link rel="canonical" href="https://www.cvtujuhsembilanotorentcar.com/" />
+
+    <link rel="icon" type="image/png" href="/Logo.png" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.cvtujuhsembilanotorentcar.com/"
+    />
+    <meta
+      property="og:title"
+      content="Rental Mobil Berau Termurah | CV Tujuh Sembilan Oto Rentcar"
+    />
+    <meta
+      property="og:description"
+      content="Rental mobil terpercaya dan terjangkau di Berau. Layanan cepat, aman, dan profesional untuk semua kebutuhan transportasi Anda."
+    />
+    <meta
+      property="og:image"
+      content="https://www.cvtujuhsembilanotorentcar.com/Logo.png"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Rental Mobil Berau Termurah | CV Tujuh Sembilan Oto Rentcar"
+    />
+    <meta
+      name="twitter:description"
+      content="Rental mobil terpercaya dan terjangkau di Berau. Layanan cepat, aman, dan profesional untuk semua kebutuhan transportasi Anda."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.cvtujuhsembilanotorentcar.com/Logo.png"
+    />
+
+    <meta
+      name="google-site-verification"
+      content="th4SZplLAEv0WczFkzG7b8fG1AIw6ogdLzQlZq28lVo"
+    />
+    @vite('resources/css/app.css')
+    <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  {{-- Alphine js --}}
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="overflow-x-hidden bg-white">
+    <x-navbar></x-navbar>
+    {{ $slot }}
+
+    <x-footer></x-footer>
+    @stack('scripts')
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>

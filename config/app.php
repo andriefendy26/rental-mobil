@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
 
 return [
+    
+
 
     /*
     |--------------------------------------------------------------------------
@@ -15,6 +17,8 @@ return [
     | any other location as required by the application or its packages.
     |
     */
+    'phone' => env('APP_PHONE', '6281234567890'),
+
 
     'name' => env('APP_NAME', 'Laravel'),
 
