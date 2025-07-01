@@ -12,19 +12,19 @@
         <meta property="og:image" content="{{ $artikel->gambar }}" />
         <meta property="og:url" content="{{ url('/artikel/detail/' . $artikel->id) }}" />
 
-        Twitter Card
+        {{-- Twitter Card --}}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="{{ $artikel->judul }} – CV Tujuh Sembilan Oto" />
         <meta name="twitter:description" content="{{ $artikel->sub_judul ?? Str::limit(strip_tags($artikel->content), 155) }}" />
         <meta name="twitter:image" content="{{ $artikel->gambar }}" />
     @endsection
-    <div class="min-h-screen mt-20 bg-zinc-50 force-light">
+    <div class="min-h-screen pt-20 bg-zinc-50 force-light">
         {{-- Breadcrumb & Back Button --}}
         <div class="bg-white border-b shadow-sm">
             <div class="max-w-4xl px-4 py-4 mx-auto">
                 <div class="flex items-center text-sm text-zinc-500">
                     <a href="{{ route('artikel') }}" class="flex items-center text-zinc-600 hover:text-[#800000]">
-                        <span class="mr-2">🔙</span> Kembali ke Blog
+                        <span class="w-6 h-6 mr-2">{{ svg('majestic-arrow-left-line') }}</span> Kembali ke Blog
                     </a>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             @endif
 
             {{-- Konten Artikel --}}
-         <article class="prose prose-lg max-w-none text-zinc-800 dark:text-zinc-800 [&_*]:!text-zinc-800">
+         <article class="prose prose-lg max-w-none [&_*]:!text-zinc-800">
             <div class="p-6 bg-white border shadow rounded-xl">
                 {!! Purifier::clean($artikel->content) !!}
             </div>

@@ -1,22 +1,28 @@
 {{-- resources/views/armada.blade.php --}}
 <x-layouts.layout>
-    {{-- ------------- SEO & OpenGraph ------------- --}}
+   {{-- ------------- SEO & OpenGraph ------------- --}}
     @section('head')
-        <title>Armada - CV Tujuh Sembilan Oto Rentcar Berau</title>
+        <title>Rental Mobil Berau – Armada Terbaik | CV Tujuh Sembilan Oto</title>
+
         <meta name="description"
-              content="Armada rental mobil CV. Tujuh Sembilan Oto Berau tersedia untuk perjalanan pribadi, bisnis, dan proyek. Armada bersih, ber‑AC, dan rutin diservis.">
+        content="Rental mobil Berau terbaik dari CV Tujuh Sembilan Oto. Armada nyaman, bersih, dan AC dingin. Cocok untuk wisata, bisnis, atau keperluan proyek.">
+
+        <meta name="keywords"
+              content="rental mobil Berau, sewa mobil Berau, armada rental Berau, CV Tujuh Sembilan Oto, sewa mobil harian Berau, mobil ber-AC Berau">
         <link rel="canonical" href="{{ url('/armada') }}"/>
 
-        <meta property="og:title"       content="Armada - CV Tujuh Sembilan Oto Rentcar Berau">
-        <meta property="og:description" content="Layanan sewa mobil terpercaya di Berau dengan armada lengkap dan prima.">
-        <meta property="og:image"       content="{{ asset('assets/armada.png') }}">
-        <meta property="og:url"         content="{{ url('/armada') }}">
-        <meta property="og:type"        content="website">
+        {{-- Open Graph --}}
+        <meta property="og:title" content="Rental Mobil Berau – Armada Terbaik | CV Tujuh Sembilan Oto">
+        <meta property="og:description" content="Pilihan armada rental mobil terbaik di Berau. Layanan profesional, harga bersaing, cocok untuk semua kebutuhan perjalanan.">
+        <meta property="og:image" content="{{ asset('assets/armada.png') }}">
+        <meta property="og:url" content="{{ url('/armada') }}">
+        <meta property="og:type" content="website">
 
-        <meta name="twitter:card"        content="summary_large_image">
-        <meta name="twitter:title"       content="Armada - CV Tujuh Sembilan Oto Rentcar Berau">
-        <meta name="twitter:description" content="Rental mobil Berau dengan armada terbaik. Nyaman, aman, harga bersaing.">
-        <meta name="twitter:image"       content="{{ asset('assets/armada.png') }}">
+        {{-- Twitter Card --}}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Rental Mobil Berau – Armada Terbaik | CV Tujuh Sembilan Oto">
+        <meta name="twitter:description" content="Sewa mobil Berau dengan armada lengkap dan nyaman. Tersedia untuk harian, mingguan, dan bulanan.">
+        <meta name="twitter:image" content="{{ asset('assets/armada.png') }}">
     @endsection
 
     @php
@@ -33,10 +39,13 @@
              style="background-image:url('{{ asset('assets/BGArmada.png') }}')">
         <div class="absolute inset-0 bg-black/80"></div>
 
-        <div class="container relative px-4 mx-auto text-center" data-aos="fade-right">
-            <h1 class="text-4xl font-bold text-white sm:text-5xl">ARMADA KAMI</h1>
+        <div class="container relative items-center px-4 mx-auto text-center" data-aos="fade-right">
+            <h1 class="text-4xl font-bold text-white sm:text-5xl">Armada Rental Mobil Terbaik di Berau</h1>
             <div class="w-24 h-1 mx-auto mt-4 bg-yellow-400"></div>
-            <p class="mt-6 text-lg text-zinc-200">
+            <p class="max-w-xl mx-auto mt-6 mb-6 text-md">
+              CV Tujuh Sembilan Oto menyediakan layanan <strong>rental mobil Berau</strong> dengan armada lengkap dan berkualitas. Tersedia mobil untuk keperluan pribadi, wisata, proyek, hingga bisnis. Sewa mobil harian, mingguan, dan bulanan tersedia dengan harga kompetitif.
+            </p>
+            <p class="text-lg font-semibold text-zinc-200">
                 Berikut tipe dan jenis unit armada kami
             </p>
         </div>
@@ -84,7 +93,7 @@
                                     <h2
                                         class="px-4 mb-2 text-2xl font-bold text-center text-zinc-800">{{ $item['merek'] }}</h2>
                                     <img src="{{ asset($item['gambar']) }}"
-                                         alt="{{ $item['merek'] }}"
+                                         alt="Rental Mobil {{ $item['merek'] }} Berau"
                                          class="object-contain h-52 w-60 drop-shadow-lg"
                                          loading="lazy">
                                 </div>

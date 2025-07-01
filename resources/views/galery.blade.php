@@ -8,13 +8,33 @@
         $skeletonHeights = [200, 280, 320, 240, 360, 220, 300, 260, 340, 180, 250, 290];
     @endphp
 
+    @section('head')
+        <title>Galeri Rental Mobil Berau – CV Tujuh Sembilan Oto</title> 
+        <meta name="description" content="Lihat galeri foto layanan rental mobil Berau dari CV Tujuh Sembilan Oto. Armada lengkap, pelayanan profesional, dan dokumentasi kegiatan kami.">
+        <meta name="keywords" content="Galeri, Rental Mobil Berau, Foto Armada, Dokumentasi CV Tujuh Sembilan Oto, Sewa Mobil Berau, Layanan Transportasi Berau">
+        <link rel="canonical" href="{{ url()->current() }}" />
+
+        {{-- Open Graph --}}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Galeri Rental Mobil Berau – CV Tujuh Sembilan Oto" />
+        <meta property="og:description" content="Kumpulan dokumentasi dan foto layanan rental mobil Berau dari CV Tujuh Sembilan Oto. Lihat armada dan kegiatan kami." />
+        <meta property="og:image" content="{{ $data[0]['gambar'] ?? asset('images/default-og.jpg') }}" />
+        <meta property="og:url" content="{{ url()->current() }}" />
+
+        {{-- Twitter Card --}}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Galeri Rental Mobil Berau – CV Tujuh Sembilan Oto" />
+        <meta name="twitter:description" content="Dokumentasi kegiatan dan armada rental mobil Berau terbaik. Temukan galeri layanan transportasi CV Tujuh Sembilan Oto." />
+        <meta name="twitter:image" content="{{ $data[0]['gambar'] ?? asset('images/default-og.jpg') }}" />
+    @endsection
+
     <div  x-data="{ selectedImage: null }"
           class="min-h-screen pt-20">
 
         {{-- ========= HEADER ========= --}}
         <div data-aos="fade-right" class="container px-4 pt-10 mx-auto text-center">
-            <h1 class="bg-[#800000] bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-                GALERI KAMI
+            <h1 class="bg-[#800000] max-w-xl mx-auto bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+                Galeri Rental Mobil & Dokumentasi CV Tujuh Sembilan Oto
             </h1>
             <div class="w-24 h-1 mx-auto mt-4 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400"></div>
             <p class="mt-6 text-lg text-zinc-600 ">

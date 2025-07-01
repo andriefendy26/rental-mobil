@@ -18,14 +18,16 @@
         <meta name="twitter:description" content="Tips, panduan, dan informasi rental mobil terpercaya di Berau untuk perjalanan Anda.">
         <meta name="twitter:image"       content="{{ asset('assets/tentang1.png') }}">
     @endsection
- {{-- {{dd($data)}} --}}
     {{-- ------------ HALAMAN ------------ --}}
     <div x-data="artikelPage()" class="min-h-screen pt-24 bg-gradient-to-br from-zinc-50 to-blue-50">
 
         {{-- ---------- HEADER ---------- --}}
         <header class="bg-white border-b shadow-sm">
             <div class="px-4 py-16 mx-auto text-center max-w-7xl" data-aos="fade-right">
-                <h1 class="mb-4 text-4xl font-bold text-black md:text-5xl">Blog Rental Mobil</h1>
+                <h1 class="mb-4 text-4xl font-bold text-black md:text-5xl">
+                    Artikel & Tips Rental Mobil Terpercaya di Berau
+                </h1>
+
                 <p class="max-w-2xl mx-auto text-xl text-zinc-600">
                     Temukan tips, panduan, dan informasi terbaru seputar rental mobil untuk perjalanan yang lebih nyaman
                 </p>
@@ -107,19 +109,22 @@
                                 {{-- Footer --}}
                                 <div class="flex items-center justify-between pt-4 border-t border-zinc-100">
                                     <div class="flex items-center space-x-3">
-                                        <span class="flex h-8 w-8 items-center justify-center rounded-full bg-[#800000]">👤</span>
+                                        <span class="flex h-9 w-9 p-2 items-center justify-center rounded-full bg-[#800000]">
+                                            {{ svg('akar-person') }}
+                                        </span>
                                         <div>
                                             <p class="text-sm font-medium text-zinc-900"
                                                x-text="article.author"></p>
                                             <div class="flex items-center space-x-1 text-xs text-zinc-500">
-                                                <span>📅</span>
+                                                {{-- <span>📅</span> --}}
+                                                <x-uni-calender-o />
                                                 <span x-text="new Date(article.created_at).toLocaleDateString('id-ID')"></span>
                                             </div>
                                         </div>
                                     </div>
                                     <a :href="'/artikel/detail/' + article.id"
                                        class="group flex items-center space-x-1 text-sm font-medium text-[#800000] hover:text-[#800000]/70">
-                                        <span>Baca Selengkapnya</span> <span>➡️</span>
+                                        <span>Baca Selengkapnya</span> {{ svg('majestic-arrow-right-line') }}
                                     </a>
                                 </div>
                             </div>

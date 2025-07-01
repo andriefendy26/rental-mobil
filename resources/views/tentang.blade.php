@@ -1,23 +1,26 @@
 @section('title', 'Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau')
 
 @section('head')
-    {{-- SEO & Open Graph --}}
+    {{-- ------------ SEO & Open Graph ------------ --}}
+    <title>Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau</title>
     <meta name="description"
-          content="Profil lengkap CV Tujuh Sembilan Oto Rentcar — penyedia layanan rental mobil terpercaya di Berau dengan armada terawat dan tim profesional.">
+          content="Kenali lebih dekat CV Tujuh Sembilan Oto Rentcar, penyedia layanan rental mobil terpercaya di Berau dengan armada lengkap, bersih, dan tim profesional.">
+    <meta name="keywords"
+          content="Tentang CV Tujuh Sembilan Oto, rental mobil Berau, sewa mobil Berau, layanan transportasi Berau, profil perusahaan rental Berau">
     <link rel="canonical" href="{{ url('/tentangkami') }}"/>
 
-    <meta property="og:type"  content="website"/>
-    <meta property="og:title" content="Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau"/>
-    <meta property="og:description"
-          content="Kenali CV Tujuh Sembilan Oto Rentcar: rental mobil Berau yang mengutamakan kenyamanan dan keamanan pelanggan dengan armada prima &amp; layanan profesional."/>
-    <meta property="og:url"   content="{{ url('/tentangkami') }}"/>
-    <meta property="og:image" content="{{ asset('assets/tentang1.png') }}"/>
+    {{-- Open Graph --}}
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau" />
+    <meta property="og:description" content="Profil CV Tujuh Sembilan Oto Rentcar, layanan sewa mobil di Berau yang mengutamakan kenyamanan, keamanan, dan kepuasan pelanggan." />
+    <meta property="og:url"         content="{{ url('/tentangkami') }}" />
+    <meta property="og:image"       content="{{ asset('assets/tentang1.png') }}" />
 
-    <meta name="twitter:card"        content="summary_large_image"/>
-    <meta name="twitter:title"       content="Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau"/>
-    <meta name="twitter:description"
-          content="CV Tujuh Sembilan Oto Rentcar hadir dengan armada terawat &amp; tim profesional untuk segala kebutuhan transportasi di Berau."/>
-    <meta name="twitter:image"       content="{{ asset('assets/tentang1.png') }}"/>
+    {{-- Twitter Card --}}
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau" />
+    <meta name="twitter:description" content="CV Tujuh Sembilan Oto Rentcar adalah perusahaan rental mobil di Berau dengan armada terawat dan layanan profesional untuk kebutuhan pribadi dan bisnis." />
+    <meta name="twitter:image"       content="{{ asset('assets/tentang1.png') }}" />
 @endsection
 
 @php
@@ -66,8 +69,8 @@ MSG;
     <section class="relative overflow-hidden rounded-tl-[100px] rounded-tr-[100px]">
         <div class="relative px-4 mx-auto max-w-7xl py-14 sm:px-6 lg:px-8">
             <div data-aos="fade-right" class="text-center">
-                <h1 class="mb-6 text-4xl font-bold tracking-wide text-zinc-800 md:text-6xl">
-                    TENTANG <span class="bg-[#800000] bg-clip-text text-transparent">KAMI</span>
+                <h1 class="mb-6 text-3xl font-bold tracking-wide text-zinc-800 md:text-5xl">
+                    Tentang <span class="bg-[#800000] bg-clip-text text-transparent">CV Tujuh Sembilan Oto Rentcar Berau</span>
                 </h1>
                 <div class="w-32 h-1 mx-auto mt-6 bg-gradient-to-r from-yellow-400 to-yellow-600"></div>
                 <p class="max-w-3xl mx-auto mt-6 text-lg leading-relaxed text-zinc-600 md:text-xl">
