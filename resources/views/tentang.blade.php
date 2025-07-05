@@ -1,27 +1,6 @@
-@section('title', 'Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau')
+{{-- @section('title', 'Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau') --}}
 
-@section('head')
-    {{-- ------------ SEO & Open Graph ------------ --}}
-    <title>Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau</title>
-    <meta name="description"
-          content="Kenali lebih dekat CV Tujuh Sembilan Oto Rentcar, penyedia layanan rental mobil terpercaya di Berau dengan armada lengkap, bersih, dan tim profesional.">
-    <meta name="keywords"
-          content="Tentang CV Tujuh Sembilan Oto, rental mobil Berau, sewa mobil Berau, layanan transportasi Berau, profil perusahaan rental Berau">
-    <link rel="canonical" href="{{ url('/tentangkami') }}"/>
 
-    {{-- Open Graph --}}
-    <meta property="og:type"        content="website" />
-    <meta property="og:title"       content="Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau" />
-    <meta property="og:description" content="Profil CV Tujuh Sembilan Oto Rentcar, layanan sewa mobil di Berau yang mengutamakan kenyamanan, keamanan, dan kepuasan pelanggan." />
-    <meta property="og:url"         content="{{ url('/tentangkami') }}" />
-    <meta property="og:image"       content="{{ asset('assets/tentang1.png') }}" />
-
-    {{-- Twitter Card --}}
-    <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:title"       content="Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau" />
-    <meta name="twitter:description" content="CV Tujuh Sembilan Oto Rentcar adalah perusahaan rental mobil di Berau dengan armada terawat dan layanan profesional untuk kebutuhan pribadi dan bisnis." />
-    <meta name="twitter:image"       content="{{ asset('assets/tentang1.png') }}" />
-@endsection
 
 @php
     // ---------- Data ----------
@@ -63,7 +42,30 @@ MSG;
 @endphp
 
 <x-layouts.layout>
-<div class="min-h-screen pt-20 ">
+@section('head')
+    {{-- ------------ SEO & Open Graph ------------ --}}
+    <title>Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau</title>
+    <meta name="description"
+          content="Kenali lebih dekat CV Tujuh Sembilan Oto Rentcar, penyedia layanan rental mobil terpercaya di Berau dengan armada lengkap, bersih, dan tim profesional.">
+    <meta name="keywords"
+          content="Tentang CV Tujuh Sembilan Oto, rental mobil Berau, sewa mobil Berau, layanan transportasi Berau, profil perusahaan rental Berau">
+    <link rel="canonical" href="{{ url('/tentangkami') }}"/>
+
+    {{-- Open Graph --}}
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau" />
+    <meta property="og:description" content="Profil CV Tujuh Sembilan Oto Rentcar, layanan sewa mobil di Berau yang mengutamakan kenyamanan, keamanan, dan kepuasan pelanggan." />
+    <meta property="og:url"         content="{{ url('/tentangkami') }}" />
+    <meta property="og:image"       content="{{ asset('assets/tentang1.png') }}" />
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Tentang Kami – CV Tujuh Sembilan Oto Rentcar Berau" />
+    <meta name="twitter:description" content="CV Tujuh Sembilan Oto Rentcar adalah perusahaan rental mobil di Berau dengan armada terawat dan layanan profesional untuk kebutuhan pribadi dan bisnis." />
+    <meta name="twitter:image"       content="{{ asset('assets/tentang1.png') }}" />
+@endsection
+    
+<div class="min-h-screen ">
 
     {{-- ---------- Hero ---------- --}}
     <section class="relative overflow-hidden rounded-tl-[100px] rounded-tr-[100px]">

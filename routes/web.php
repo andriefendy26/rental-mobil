@@ -18,6 +18,13 @@ use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 |
 */
 
+Route::get('/sitemap.xml', function () {
+    $artikel = Artikel::latest()->get();
+    // $category = artikel->tags;
+    return response()->view('sitemap', compact('artikel'))->header('Content-Type','text/xml');
+});
+
+
 Route::get('/', function () {
     $armada = Mobil::all()->map(function ($mobil) {
 

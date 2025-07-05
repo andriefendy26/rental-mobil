@@ -28,7 +28,7 @@ class MobilResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('merek')->label('Merek Mobil'),
+                Forms\Components\TextInput::make('merek')->label('Merek Mobil')->require(),
                 Forms\Components\TextInput::make('no_plat')->label('No Plat'),
                 Forms\Components\TextInput::make('harga')->label('Harga Rental / Hari')->prefix('Rp')->numeric(),
                 Forms\Components\Select::make('status')->label('Status')

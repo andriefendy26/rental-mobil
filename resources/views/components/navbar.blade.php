@@ -13,8 +13,6 @@
 >
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-            {{-- Logo --}}
-             {{-- Logo --}}
             <div class="flex-shrink-0">
                 <a href="/">
                     @if($isStaticNavbar)
@@ -30,7 +28,7 @@
             </div>
 
             {{-- Desktop Navigation --}}
-            <div class="items-center hidden space-x-8 md:flex">
+            <div class="items-center hidden space-x-10 md:flex">
                 <a href="/"
                    :class="{{ $isStaticNavbar ? "'text-zinc-800 hover:text-[#800000]'" : 'scrolled ? `text-zinc-800 hover:text-[#800000]` : `text-white hover:text-gray-200`' }}"
                    class="font-medium transition">
@@ -52,15 +50,18 @@
                     </svg>
                 </button>
             </div>
+
+            
         </div>
     </div>
 
     {{-- Mobile Navigation --}}
     <div x-show="open" class="px-4 pt-2 pb-4 space-y-1 bg-white shadow md:hidden">
         <a href="/" class="block text-zinc-800 hover:text-[#800000] font-medium">Beranda</a>
-        <a href="/armada" class="block text-zinc-800 hover:text-[#800000] font-medium">Artikel</a>
+        <a href="/armada" class="block text-zinc-800 hover:text-[#800000] font-medium">Armada</a>
         <a href="/artikel" class="block text-zinc-800 hover:text-[#800000] font-medium">Artikel</a>
         <a href="/galeri" class="block text-zinc-800 hover:text-[#800000] font-medium">Galeri</a>
         <a href="/tentangkami" class="block text-zinc-800 hover:text-[#800000] font-medium">Tentang Kami</a>
     </div>
+    
 </nav>

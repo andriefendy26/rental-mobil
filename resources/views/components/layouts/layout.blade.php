@@ -7,6 +7,7 @@
       name="google-site-verification"
       content="th4SZplLAEv0WczFkzG7b8fG1AIw6ogdLzQlZq28lVo"
     />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @vite('resources/css/app.css')
     <!-- AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -21,7 +22,9 @@
     @stack('scripts')
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init();
+    AOS.init({
+      duration: 1400, 
+    });
 </script>
 </body>
 </html>

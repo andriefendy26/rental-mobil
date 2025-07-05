@@ -4,7 +4,7 @@
 ])
 
 {{-- Step 1: Pilih Layanan & Tujuan --}}
-<div data-aos="fade-right" class="relative z-50 flex flex-col p-6 px-12 text-black bg-white shadow-2xl rounded-2xl md:mx-24 lg:-top-14 lg:mx-16">
+<div data-aos="fade-up" class="relative z-50 flex flex-col p-6 px-12 text-black bg-white shadow-2xl rounded-2xl md:mx-24 lg:-top-14 lg:mx-16">
     {{-- Progress Steps --}}
     <div class="flex items-center justify-center mb-8">
         <div class="flex items-center">
