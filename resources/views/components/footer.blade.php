@@ -36,10 +36,15 @@
         <h3 class="pb-2 mb-6 text-xl font-bold text-white border-b border-zinc-700">Hubungi Kami</h3>
         <div class="space-y-4">
           <div class="flex items-start p-3 space-x-3 transition-colors rounded-lg bg-zinc-800/50 hover:bg-zinc-700/50">
-            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 mt-1 text-emerald-400" viewBox="0 0 24 24" fill="currentColor"><path d="M2 4.75C2 3.784 2.784 3 3.75 3h1.4c.491 0 .966.161 1.35.457l1.28.985c.455.35.682.926.594 1.49l-.27 1.689a1.25 1.25 0 0 1-.356.666l-.866.866a12.04 12.04 0 0 0 5.232 5.232l.866-.866c.178-.177.407-.3.666-.356l1.689-.27a1.25 1.25 0 0 1 1.49.594l.985 1.28c.296.384.457.859.457 1.35v1.4c0 .966-.784 1.75-1.75 1.75h-.5C8.798 21.5 2.5 15.202 2.5 7.25v-.5Z"/></svg>
-            <div>
-              <p class="text-sm text-zinc-300">Office</p>
-              <p class="font-medium text-white">6281350297868</p>
+            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 w-4 h-4 mt-1 text-emerald-400" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M2 4.75C2 3.784 2.784 3 3.75 3h1.4c.491 0 .966.161 1.35.457l1.28.985c.455.35.682.926.594 1.49l-.27 1.689a1.25 1.25 0 0 1-.356.666l-.866.866a12.04 12.04 0 0 0 5.232 5.232l.866-.866c.178-.177.407-.3.666-.356l1.689-.27a1.25 1.25 0 0 1 1.49.594l.985 1.28c.296.384.457.859.457 1.35v1.4c0 .966-.784 1.75-1.75 1.75h-.5C8.798 21.5 2.5 15.202 2.5 7.25v-.5Z"/>
+            </svg>
+            <div class="text-sm text-zinc-300">
+              <p class="mb-1">Office</p>
+              <div class="space-y-0.5 font-medium text-white">
+                <p>+62 813-5029-7868</p>
+                <p>+62 822-5627-7516</p>
+              </div>
             </div>
           </div>
         </div>

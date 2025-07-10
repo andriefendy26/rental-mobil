@@ -8,10 +8,10 @@
     {{-- Content --}}
     <div class="relative">
         {{-- Header --}}
-        <div data-aos="fade-up" class="container px-4 pt-20 mx-auto text-center">
+        <div data-aos="fade-up" class="container px-4 pt-20 mx-auto text-center text-white">
             <h2 class="text-4xl font-bold tracking-wide text-white md:text-6xl">TENTANG KAMI</h2>
             <div class="w-32 h-1 mx-auto mt-6 bg-gradient-to-r from-yellow-400 to-yellow-600"></div>
-            <p class="mt-6 text-lg text-gray-300 md:text-xl">
+            <p class="mt-6 text-lg md:text-xl">
                 Partner Terpercaya untuk Semua Kebutuhan Transportasi Anda
             </p>
         </div>
@@ -26,7 +26,7 @@
                         <h3 class="mb-6 text-4xl font-bold text-white">CV. Tujuh Sembilan Oto</h3>
                         <div class="mx-auto mb-6 h-0.5 w-20 bg-yellow-400"></div>
                     </div>
-                    <div class="grid items-center gap-8 md:grid-cols-1">
+                    <div class="grid items-center gap-8 text-white md:grid-cols-1 ">
                         <div>
                             <p class="mb-6 text-lg leading-relaxed text-gray-200">
                                 Sejak didirikan,
@@ -45,7 +45,7 @@
                 </div>
 
                 {{-- Vision & Mission --}}
-                <div class="grid gap-8 mb-20 md:grid-cols-2">
+                <div class="grid gap-8 mb-20 text-white md:grid-cols-2">
                     <div data-aos="fade-right"
                          class="p-8 border rounded-3xl border-white/10 bg-gradient-to-br from-white/20 to-gray/10">
                         <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#800000] to-[#a00000]">

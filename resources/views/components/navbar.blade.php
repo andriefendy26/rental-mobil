@@ -29,15 +29,26 @@
 
             {{-- Desktop Navigation --}}
             <div class="items-center hidden space-x-10 md:flex">
-                <a href="/"
-                   :class="{{ $isStaticNavbar ? "'text-zinc-800 hover:text-[#800000]'" : 'scrolled ? `text-zinc-800 hover:text-[#800000]` : `text-white hover:text-gray-200`' }}"
-                   class="font-medium transition">
-                    Beranda
-                </a>
-                <a href="/armada" :class="{{ $isStaticNavbar ? "'text-zinc-800 hover:text-[#800000]'" : 'scrolled ? `text-zinc-800 hover:text-[#800000]` : `text-white hover:text-gray-200`' }}" class="font-medium transition">Armada</a>
-                <a href="/artikel" :class="{{ $isStaticNavbar ? "'text-zinc-800 hover:text-[#800000]'" : 'scrolled ? `text-zinc-800 hover:text-[#800000]` : `text-white hover:text-gray-200`' }}" class="font-medium transition">Artikel</a>
-                <a href="/galeri" :class="{{ $isStaticNavbar ? "'text-zinc-800 hover:text-[#800000]'" : 'scrolled ? `text-zinc-800 hover:text-[#800000]` : `text-white hover:text-gray-200`' }}" class="font-medium transition">Galeri</a>
-                <a href="/tentangkami" :class="{{ $isStaticNavbar ? "'text-zinc-800 hover:text-[#800000]'" : 'scrolled ? `text-zinc-800 hover:text-[#800000]` : `text-white hover:text-gray-200`' }}" class="font-medium transition">Tentang Kami</a>
+                @php
+                    $link = [
+                        ['label' => 'Beranda', 'url' => '/'],
+                        ['label' => 'Armada', 'url' => '/armada'],
+                        ['label' => 'Artikel', 'url' => '/artikel'],
+                        ['label' => 'Galeri', 'url' => '/galeri'],
+                        ['label' => 'Beranda', 'url' => '/tentangkami'],
+                    ]
+                @endphp
+                
+                @foreach ($link as $item)
+                    <a href={{ $item['url'] }}
+                    :class="{{ $isStaticNavbar ? "'text-zinc-800 hover:text-[#800000]'" : 'scrolled ? `text-zinc-800 hover:text-[#800000]` : `text-white hover:text-[#800000]`' }}"
+                    class="relative font-medium transition group">
+                        {{ $item['label'] }}
+                        <span class="absolute left-0 -bottom-0.5 h-0.5 w-full
+                        bg-current transform scale-x-0
+                        group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </a>
+                @endforeach
             </div>
 
             {{-- Mobile Toggle --}}
@@ -56,12 +67,25 @@
     </div>
 
     {{-- Mobile Navigation --}}
-    <div x-show="open" class="px-4 pt-2 pb-4 space-y-1 bg-white shadow md:hidden">
-        <a href="/" class="block text-zinc-800 hover:text-[#800000] font-medium">Beranda</a>
-        <a href="/armada" class="block text-zinc-800 hover:text-[#800000] font-medium">Armada</a>
-        <a href="/artikel" class="block text-zinc-800 hover:text-[#800000] font-medium">Artikel</a>
-        <a href="/galeri" class="block text-zinc-800 hover:text-[#800000] font-medium">Galeri</a>
-        <a href="/tentangkami" class="block text-zinc-800 hover:text-[#800000] font-medium">Tentang Kami</a>
+    <div x-show="open"
+        x-transition:enter="transition-all ease-out duration-300"
+        x-transition:enter-start="max-h-0 opacity-0"
+        x-transition:enter-end="max-h-[500px] opacity-100"
+        x-transition:leave="transition-all ease-in duration-200"
+        x-transition:leave-start="max-h-[500px] opacity-100"
+        x-transition:leave-end="max-h-0 opacity-0"
+     :class={{ $isStaticNavbar ? "shadow md:hidden" :'scrolled ? `text-zinc-800 hover:text-[#800000]` : ` text-zinc-900 hover:text-[#800000]`'}} class="px-4 pt-2 pb-4 space-y-3 shadow-md bg-white/90 backdrop-blur-md">
+     @foreach ($link as $item )    
+        <a href={{ $item['url'] }} :class="{{ $isStaticNavbar ? "'text-zinc-800 hover:text-[#800000]'" : 'scrolled ? `text-zinc-800 hover:text-[#800000]` : `text-zinc-900 hover:text-[#800000]`' }}" class="relative block font-medium transition group">{{ $item['label'] }}
+        <span class="absolute left-0 -bottom-0.5 h-0.5 w-full
+         bg-current transform scale-x-0
+         group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+        </a>
+     @endforeach
+
     </div>
     
 </nav>
+
+{{-- @section('scripts')
+@endsection --}}

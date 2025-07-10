@@ -42,7 +42,7 @@
         <div class="container relative items-center px-4 mx-auto text-center" data-aos="fade-right">
             <h1 class="text-4xl font-bold text-white sm:text-5xl">Armada Rental Mobil Terbaik di Berau</h1>
             <div class="w-24 h-1 mx-auto mt-4 bg-yellow-400"></div>
-            <p class="max-w-xl mx-auto mt-6 mb-6 text-md">
+            <p class="max-w-xl mx-auto mt-6 mb-6 text-white text-md">
               CV Tujuh Sembilan Oto menyediakan layanan <strong>rental mobil Berau</strong> dengan armada lengkap dan berkualitas. Tersedia mobil untuk keperluan pribadi, wisata, proyek, hingga bisnis. Sewa mobil harian, mingguan, dan bulanan tersedia dengan harga kompetitif.
             </p>
             <p class="text-lg font-semibold text-zinc-200">
