@@ -72,6 +72,76 @@
                 {{-- -------- GRID OF CARDS -------- --}}
                 <div class="grid grid-cols-1 gap-10 p-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                      data-aos="fade-up">
+                    @php
+                        $excavatorMsg = urlencode(
+                            "==============================\n*HALO SAYA INGIN MEMESAN*\n==============================\n\n" .
+                            "Halo *CV Tujuh Sembilan Oto Rent Car*,\n\n" .
+                            "Saya tertarik untuk melakukan pemesanan Excavator SY 135F-5. Mohon informasi lebih lanjut mengenai ketersediaan unit dan proses pemesanan.\n\n🙏 Terima kasih 🙏\n" .
+                            "📩 Dikirim via https://cvtujuhsembilanotorentcar.com"
+                        );
+                    @endphp
+
+                    <div
+                        class="flex flex-col overflow-hidden transition-all duration-300 transform bg-white shadow-xl rounded-3xl hover:-translate-y-2 hover:shadow-2xl">
+                        <div class="relative pt-3 pb-2 bg-gradient-to-br from-zinc-100/40 to-zinc-200/100">
+                            <div class="flex flex-col items-center">
+                                <h2
+                                    class="px-4 mb-2 text-2xl font-bold text-center text-zinc-800">Excavator SY 135F-5</h2>
+                                <img src="{{ asset('storage/Sany.png') }}"
+                                     alt="Rental Excavator SY 135F-5 Berau"
+                                     class="object-contain h-52 w-60 drop-shadow-lg"
+                                     loading="lazy">
+                            </div>
+                        </div>
+
+                            <div class="flex-1 bg-gradient-to-b from-[#800000] to-[#600000] text-white">
+                            <div class="px-6 py-3 text-center border-b border-white/20">
+                                <h2 class="text-4xl font-bold">HUBUNGI KAMI</h2>
+                            </div>
+
+                            <div class="px-6 py-3 text-center">
+                                <a href="https://api.whatsapp.com/send?phone={{ $phone }}&text={{ $excavatorMsg }}&type=phone_number&app_absent=0"
+                                   target="_blank">
+                                    <button
+                                        class="transform rounded-xl bg-white px-8 py-3 font-semibold text-[#800000] shadow-lg transition-all duration-200 hover:scale-105 hover:bg-zinc-100 hover:shadow-xl">
+                                        Pesan Sekarang
+                                    </button>
+                                </a>
+                            </div>
+
+                            <div class="px-6 pb-4">
+                                <h3 class="mb-2 text-xl font-bold text-center">SPESIFIKASI</h3>
+                                <div class="grid gap-2">
+                                    <div
+                                        class="flex items-center justify-between py-1 text-sm border-b border-white/20">
+                                        <span class="text-white/80">Transmisi</span>
+                                        <span class="font-medium">Hydraulic</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between py-1 text-sm border-b border-white/20">
+                                        <span class="text-white/80">Bahan Bakar</span>
+                                        <span class="font-medium">Solar</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between py-1 text-sm border-b border-white/20">
+                                        <span class="text-white/80">Warna</span>
+                                        <span class="font-medium">Kuning</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between py-1 text-sm border-b border-white/20">
+                                        <span class="text-white/80">Kapasitas</span>
+                                        <span class="font-medium">Menyesuaikan</span>
+                                    </div>
+                                    <div
+                                        class="flex items-center justify-between py-1 text-sm">
+                                        <span class="text-white/80">Tahun</span>
+                                        <span class="font-medium">Terbaru</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     @foreach ($mobil as $item)
                         @php
                             $harga     = (int) $item['harga'];
@@ -86,7 +156,7 @@
                         @endphp
 
                         <div
-                            class="overflow-hidden transition-all duration-300 transform bg-white shadow-xl rounded-3xl hover:-translate-y-2 hover:shadow-2xl">
+                            class="flex flex-col overflow-hidden transition-all duration-300 transform bg-white shadow-xl rounded-3xl hover:-translate-y-2 hover:shadow-2xl">
                             {{-- Header --}}
                             <div class="relative pt-3 pb-2 bg-gradient-to-br from-zinc-100/40 to-zinc-200/100">
                                 <div class="flex flex-col items-center">
@@ -100,7 +170,7 @@
                             </div>
 
                             {{-- Body card --}}
-                            <div class="bg-gradient-to-b from-[#800000] to-[#600000] text-white">
+                        <div class="flex-1 bg-gradient-to-b from-[#800000] to-[#600000] text-white">
                                 {{-- Price --}}
                                 <div class="px-6 py-3 text-center border-b border-white/20">
                                     @if ($harga > 0)

@@ -35,7 +35,7 @@
                         ['label' => 'Armada', 'url' => '/armada'],
                         ['label' => 'Artikel', 'url' => '/artikel'],
                         ['label' => 'Galeri', 'url' => '/galeri'],
-                        ['label' => 'Beranda', 'url' => '/tentangkami'],
+                        ['label' => 'Tentang Kami', 'url' => '/tentangkami'],
                     ]
                 @endphp
                 

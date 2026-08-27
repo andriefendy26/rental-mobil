@@ -39,6 +39,33 @@
 
                 <div class="relative pb-12 swiper myArmada">
                     <div class="swiper-wrapper">
+                        <div class="p-4 swiper-slide">
+                                <div class="flex flex-col overflow-hidden transition-all duration-300 transform bg-white shadow-xl rounded-3xl hover:-translate-y-2 hover:shadow-2xl">
+                                <div class="relative pt-3 pb-2 bg-gradient-to-br from-zinc-100/40 to-zinc-200">
+                                    <div class="flex flex-col items-center">
+                                        <h2 class="px-4 mb-2 text-2xl font-bold text-center text-zinc-800">Excavator SY 135F-5</h2>
+                                        <img src="{{ asset('storage/Sany.png') }}" alt="Excavator SY 135F-5" class="object-contain h-52 w-60 drop-shadow-lg" loading="lazy" />
+                                    </div>
+                                </div>
+
+                                    <div class="flex-1 text-white bg-gradient-to-b from-[#800000] to-[#600000]">
+                                    <div class="px-6 py-3 text-center border-b border-white/20">
+                                        <h2 class="text-4xl font-bold">HUBUNGI KAMI</h2>
+                                    </div>
+                                    <div class="px-6 pb-4">
+                                        <h3 class="mb-2 text-xl font-bold text-center">SPESIFIKASI</h3>
+                                        <div class="grid gap-2">
+                                            <div class="flex items-center justify-between py-1 border-b border-white/20"><span class="text-white/80">Transmisi</span><span class="font-medium">Hydraulic</span></div>
+                                            <div class="flex items-center justify-between py-1 border-b border-white/20"><span class="text-white/80">Bahan Bakar</span><span class="font-medium">Solar</span></div>
+                                            <div class="flex items-center justify-between py-1 border-b border-white/20"><span class="text-white/80">Warna</span><span class="font-medium">Kuning</span></div>
+                                            <div class="flex items-center justify-between py-1 border-b border-white/20"><span class="text-white/80">Kapasitas</span><span class="font-medium">Menyesuaikan</span></div>
+                                            <div class="flex items-center justify-between py-1"><span class="text-white/80">Tahun</span><span class="font-medium">Terbaru</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         @foreach ($data as $item)
                             @php
                                 $harga = $item->harga ?? 0;
@@ -47,7 +74,7 @@
                             @endphp
 
                             <div class="p-4 swiper-slide">
-                                <div class="overflow-hidden transition-all duration-300 transform bg-white shadow-xl rounded-3xl hover:-translate-y-2 hover:shadow-2xl">
+                                <div class="flex flex-col overflow-hidden transition-all duration-300 transform bg-white shadow-xl rounded-3xl hover:-translate-y-2 hover:shadow-2xl">
                                     <div class="relative pt-3 pb-2 bg-gradient-to-br from-zinc-100/40 to-zinc-200">
                                         <div class="flex flex-col items-center">
                                             <h2 class="px-4 mb-2 text-2xl font-bold text-center text-zinc-800">{{ $item->merek }}</h2>
@@ -55,7 +82,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="text-white bg-gradient-to-b from-[#800000] to-[#600000]">
+                                    <div class="flex-1 text-white bg-gradient-to-b from-[#800000] to-[#600000]">
                                         <div class="px-6 py-3 text-center border-b border-white/20">
                                             @if ($harga > 0)
                                                 <h2 class="text-4xl font-bold leading-none lg:text-5xl">{{ $formatted }} <span class="ml-2 text-lg font-medium">IDR</span></h2>
